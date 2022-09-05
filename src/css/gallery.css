@@ -18,10 +18,10 @@ body {
 }
 
 .input-wrap {
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   text-align: center;
-  background-color: rgba(116, 184, 7, 0.7);
+  background-color: #228b22;
 }
 input {
   font-family: sans-serif;
