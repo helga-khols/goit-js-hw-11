@@ -1,102 +1,147 @@
 :root {
   --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   --animation-duration: 250ms;
-  --transition: var(--timing-function) var(--animation-duration);
-  --main-txt-cl: #212121;
-  --main-cl: #5a7cff;
-  --main-bg-cl: #e3e9ff;
 }
 
-.container {
-  max-width: 1200px;
-  margin-right: auto;
-  margin-left: auto;
-  padding: 20px;
+* {
+  box-sizing: border-box;
 }
 
-.search-btn {
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #fafafa;
+  color: #212121;
+  line-height: 1.5;
+}
+
+.input-wrap {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-align: center;
+  background-color: rgba(116, 184, 7, 0.7);
+}
+input {
+  font-family: sans-serif;
+  padding: 4px 5px;
+  vertical-align: middle;
+}
+
+.btn {
+  box-shadow: inset 0px 1px 0px 0px #a4e271;
+  background: linear-gradient(to bottom, #89c403 5%, #77a809 100%);
+  background-color: #89c403;
+  border-radius: 6px;
+  border: 2px solid #e8e8e9;
+  display: inline-block;
   cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 4px 5px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #528009;
+  vertical-align: bottom;
 }
 
-.gallery-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-  padding: 50px 30px;
+.btn:hover {
+  background: linear-gradient(to bottom, #77a809 5%, #89c403 100%);
+  background-color: #77a809;
+}
+
+.load-more {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+img {
+  display: block;
+  max-width: 100%;
 }
 
 .gallery {
   display: grid;
-  max-width: 1640px;
+  max-width: 1140px;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  /*grid-auto-rows: 240px;*/
+  grid-auto-rows: 240px;
   grid-gap: 12px;
   justify-content: center;
   margin-left: auto;
   margin-right: auto;
-  /*margin-bottom: 30px;*/
-  color: var(--main-txt-cl);
+  list-style: none;
+  padding-left: 15px;
+  padding-right: 15px;
+  overflow: auto;
 }
 
-.load-more {
-  min-width: 200px;
-  margin-right: auto;
-  margin-left: auto;
-  /*margin-bottom: 40px;*/
-  padding: 10px 20px;
-  border: 3px solid var(--main-cl);
-  border-radius: 5px;
-  color: currentColor;
-  background-color: var(--main-bg-cl);
-  transition: color var(--transition), background-color var(--transition);
-  cursor: pointer;
-}
-
-.load-more:hover {
-  color: var(--main-bg-cl);
-  background-color: var(--main-txt-cl);
-}
-
-.load-more.is-hidden {
-  display: none;
-}
-
-.photo-card {
+.gallery__item {
   position: relative;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14),
-    0 2px 1px -1px rgba(0, 0, 0, 0.12);
-
-  display: block;
-  text-decoration: none;
-  color: currentColor;
-  overflow: hidden;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
 }
 
-.photo-card:hover {
-  cursor: zoom-in;
-}
-
-.photo-card:hover .photo-card__img {
+.gallery__image:hover {
   transform: scale(1.03);
 }
 
-.photo-card__img {
-  display: block;
+.gallery__image {
+  height: 100%;
   width: 100%;
-  height: 240px;
   object-fit: cover;
-  transition: transform var(--transition);
+  transition: transform var(--animation-duration) var(--timing-function);
+}
+
+.gallery__link {
+  display: block;
+  text-decoration: none;
+  height: 100%;
+}
+
+.gallery__link:hover {
+  cursor: zoom-in;
+}
+
+.list-item {
+  margin-bottom: 15px;
+}
+
+p {
+  margin: 0;
+  padding: 0;
 }
 
 .info {
-  position: relative;
   display: flex;
-  justify-content: space-between;
-  padding: 20px;
-  background-color: #ffffff;
+  font-size: 10px;
+  justify-content: space-evenly;
 }
 
-.info-item {
-  margin: 0;
+a {
+  all: unset;
+  /* text-decoration: none; */
+}
+
+.visually-hidden {
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  margin: -1px;
+}
+
+.info-end {
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 15px;
+  font-weight: 800;
   text-align: center;
 }
